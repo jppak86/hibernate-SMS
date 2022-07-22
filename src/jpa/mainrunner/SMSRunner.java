@@ -25,6 +25,33 @@ public class SMSRunner {
 		String choice = menu.next();
 		int cho = Integer.parseInt(choice);
 		
+		
+//		Student theStudent = ss.getStudentByEmail("hluckham0@google.ru");
+//		
+//		Course theCourse = ss.getCourseById(9);
+//		
+//		String sss = theCourse.toString();
+//		
+//		List<Course> test = theStudent.getsCourses();
+//		
+//		
+//		boolean found1 = theCourse.equals("9");
+//		
+//		System.out.println(theStudent);
+//		System.out.println();
+//		System.out.println();
+//		System.out.println(theCourse);
+//		System.out.println();
+//		System.out.println();
+//		System.out.println(test);
+//		System.out.println();
+//		System.out.println();
+//		System.out.println(sss);
+//		System.out.println();
+//		System.out.println();
+//		System.out.println(found1);
+		
+		
 		switch(cho) {
 		case 1:
 			System.out.println("Enter Your Email: ");

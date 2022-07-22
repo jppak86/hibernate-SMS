@@ -112,6 +112,8 @@ public class StudentService implements StudentDAO{
 	public void registerStudentToCourse(String sEmail, int cId) {
 		SessionFactory factory = factory();
 		
+		
+		
 		try { 
 			Session session = factory.getCurrentSession();
 		
@@ -119,20 +121,33 @@ public class StudentService implements StudentDAO{
 		
 		
 			Student theStudent = getStudentByEmail(sEmail);
-		
-		
-		
-		
 			
-			if(theStudent.getsCourses().contains(getCourseById(cId))) {
+			Course theCourse = getCourseById(cId);
+			
+//			String s = theCourse.toString();
+			
+			boolean found = false;
+			
+			List<Course> courses = theStudent.getsCourses();
+			
+			for(Course result : courses ) {
+				if(result.getCid() == theCourse.getCid()) {
+					
+					found = true;
+					break;
+				}
+			}
+			
+			if(found) {
 				
-				System.out.println("this course is already registered");
 				
+				System.out.println("This course is already registered");
+				System.out.println("Try register different course again");
 				
 			}
 			else {
-				List<Course> courses = theStudent.getsCourses();
-				courses.add(getCourseById(cId));
+				List<Course> scourses = theStudent.getsCourses();
+				scourses.add(getCourseById(cId));
 				session.update(theStudent);
 				session.getTransaction().commit();
 		
